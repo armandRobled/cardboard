@@ -67,6 +67,9 @@ file(GLOB cardboard_xr_unity_srcs
 # === Cardboard XR Provider for Unity ===
 file(GLOB cardboard_xr_provider_srcs "unity/xr_provider/*.cc")
 
+# === Aryzon 6DoF sources ===
+file(GLOB sixdof_srcs "sixdof/*.cc")
+
 # Output binary
 add_library(GfxPluginCardboard SHARED
     # Cardboard API sources.
@@ -89,7 +92,8 @@ add_library(GfxPluginCardboard SHARED
     # Cardboard Unity Wrapper sources
     ${cardboard_xr_unity_srcs}
     # Cardboard XR Provider for Unity sources
-    ${cardboard_xr_provider_srcs})
+    ${cardboard_xr_provider_srcs}
+    ${sixdof_srcs})
 
 # Includes
 target_include_directories(GfxPluginCardboard

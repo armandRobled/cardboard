@@ -53,6 +53,13 @@ class CardboardInputApi {
   // TODO(b/154305848): Move argument types to std::array*.
   void GetHeadTrackerPose(float* position, float* orientation);
 
+  /// Aryzon 6DoF
+  /// @brief Add a 6DoF pose sample to the HeadTracker module.
+  /// @param[in] timestamp_nano A timestamp of the moment the 6DoF data was captured in nanoseconds
+  /// @param[in] position A pointer to an array with three floats that holds the 6DoF position
+  /// @param[in] orientation A pointer to an array with four floats that holds the 6DoF orientation
+  void AddSixDoFData(int64_t timestamp_nano, float* position, float* orientation);
+    
   /// @brief Sets the viewport orientation that will be used.
   /// @param viewport_orientation one of the possible orientations of the
   /// viewport.
@@ -61,7 +68,7 @@ class CardboardInputApi {
 
   /// @brief Flags a head tracker recentering request.
   static void SetHeadTrackerRecenterRequested();
-
+    
  private:
   // @brief Custom deleter for HeadTracker.
   struct CardboardHeadTrackerDeleter {

@@ -35,6 +35,13 @@ UnityXRPose CardboardRotationToUnityPose(const std::array<float, 4>& rotation);
 UnityXRPose CardboardTransformToUnityPose(
     const std::array<float, 16>& transform);
 
+/// Aryzon 6DoF
+/// @brief Creates a UnityXRPose from a Cardboard rotation.
+/// @param rotation A Cardboard rotation quaternion expressed as [x, y, z, w].
+/// @param position A Cardboard position vector expressed as [x, y, z].
+/// @returns A UnityXRPose from Cardboard @p rotation.
+UnityXRPose CardboardPoseToUnityPose(const std::array<float, 4>& rotation, const std::array<float, 3>& position);
+
 }  // namespace cardboard::unity
 
 #endif  // CARDBOARD_SDK_UNITY_XR_PROVIDER_MATH_TOOLS_H_

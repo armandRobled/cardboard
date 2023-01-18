@@ -181,6 +181,9 @@ class CardboardDisplayApi {
   /// @param xr_interfaces Pointer to Unity XR interface provider.
   static void SetUnityInterfaces(IUnityInterfaces* xr_interfaces);
 
+  static void SetInterLensDistance(float distance);
+  static void SetInterpupillaryDistance(float distance);
+    
  private:
   // @brief Holds the screen and rendering area details.
   struct ScreenParams {
@@ -339,6 +342,12 @@ void CardboardUnity_setDeviceParametersChanged();
 /// @brief Sets the graphics API to use.
 /// @param graphics_api The graphics API to use.
 void CardboardUnity_setGraphicsApi(CardboardGraphicsApi graphics_api);
+
+void CardboardUnity_setInterLensDistance(float distance);
+void CardboardUnity_setInterpupillaryDistance(float distance);
+
+/// @brief Returns the headset model
+char* CardboardUnity_getHeadsetModel();
 
 #ifdef __cplusplus
 }

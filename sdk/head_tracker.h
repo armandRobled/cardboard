@@ -27,6 +27,10 @@
 #include "sensors/sensor_fusion_ekf.h"
 #include "util/rotation.h"
 
+// Aryzon 6DoF
+#include "sixdof/rotation_data.h"
+#include "sixdof/position_data.h"
+
 namespace cardboard {
 
 // HeadTracker encapsulates pose tracking by connecting sensors
@@ -52,6 +56,12 @@ class HeadTracker {
   // Recenters the head tracker.
   void Recenter();
 
+  // Function to be called when receiving SixDoFData.
+  //
+  // Aryzon 6DoF
+  // @param event sensor event.
+  void AddSixDoFData(int64_t timestamp_ns, float* position, float* orientation);
+    
  private:
   // Function called when receiving AccelerometerData.
   //
@@ -132,6 +142,17 @@ class HeadTracker {
   // Tells wheter the attribute viewport_orientation_ has been initialized or
   // not.
   bool is_viewport_orientation_initialized_;
+    
+  // Aryzon 6DoF
+  RotationData *rotation_data_;
+  PositionData *position_data_;
+    
+  Rotation ekf_to_sixDoF_;
+  Rotation smooth_ekf_to_sixDoF_;
+  Rotation ekf_to_head_tracker_;
+  
+  float steady_frames_;
+  Rotation steady_start_;
 };
 
 }  // namespace cardboard

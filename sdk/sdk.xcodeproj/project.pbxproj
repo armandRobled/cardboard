@@ -43,6 +43,9 @@
 		0FECE29825BB2760009C662C /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FECE29725BB2760009C662C /* Metal.framework */; };
 		0FECE29A25BB276D009C662C /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FECE29925BB276D009C662C /* MetalKit.framework */; };
 		0FEDA006283670070023E8C8 /* nsurl_session_data_handler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FEDA004283670070023E8C8 /* nsurl_session_data_handler.mm */; };
+		65E1CE3D2976D39800BE09D2 /* libProtobuf-C++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E1CE3C2976D39800BE09D2 /* libProtobuf-C++.a */; };
+		65E1CE4F2976E77300BE09D2 /* rotation_data.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65E1CE4B2976E77300BE09D2 /* rotation_data.cc */; };
+		65E1CE502976E77300BE09D2 /* position_data.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65E1CE4C2976E77300BE09D2 /* position_data.cc */; };
 		7B2ADACB24E4779500FEBAA8 /* opengl_es2_distortion_renderer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7B2ADAC924E4779500FEBAA8 /* opengl_es2_distortion_renderer.cc */; };
 		7B76813A24A3FA6B00E92050 /* input.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7B76813424A3FA6B00E92050 /* input.cc */; };
 		7B76813B24A3FA6B00E92050 /* display.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7B76813524A3FA6B00E92050 /* display.cc */; };
@@ -66,6 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E76FEE24810A5606280A30D /* Pods-sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk.release.xcconfig"; path = "Target Support Files/Pods-sdk/Pods-sdk.release.xcconfig"; sourceTree = "<group>"; };
 		0F29AA5E255AC37F00154BD0 /* opengl_es3_distortion_renderer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = opengl_es3_distortion_renderer.cc; sourceTree = "<group>"; };
 		0F29AA60255AC3A200154BD0 /* is_initialized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = is_initialized.h; sourceTree = "<group>"; };
 		0F29AA61255AC3A200154BD0 /* is_initialized.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = is_initialized.cc; sourceTree = "<group>"; };
@@ -138,6 +142,12 @@
 		0FECE29925BB276D009C662C /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/iOSSupport/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
 		0FEDA004283670070023E8C8 /* nsurl_session_data_handler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = nsurl_session_data_handler.mm; sourceTree = "<group>"; };
 		0FEDA005283670070023E8C8 /* nsurl_session_data_handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsurl_session_data_handler.h; sourceTree = "<group>"; };
+		603E6F6F2C3879C5E976A1DF /* libPods-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65E1CE3C2976D39800BE09D2 /* libProtobuf-C++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libProtobuf-C++.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65E1CE4B2976E77300BE09D2 /* rotation_data.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotation_data.cc; sourceTree = "<group>"; };
+		65E1CE4C2976E77300BE09D2 /* position_data.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = position_data.cc; sourceTree = "<group>"; };
+		65E1CE4D2976E77300BE09D2 /* rotation_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rotation_data.h; sourceTree = "<group>"; };
+		65E1CE4E2976E77300BE09D2 /* position_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = position_data.h; sourceTree = "<group>"; };
 		7B2ADAC924E4779500FEBAA8 /* opengl_es2_distortion_renderer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = opengl_es2_distortion_renderer.cc; sourceTree = "<group>"; };
 		7B76813424A3FA6B00E92050 /* input.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = input.cc; sourceTree = "<group>"; };
 		7B76813524A3FA6B00E92050 /* display.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = display.cc; sourceTree = "<group>"; };
@@ -168,6 +178,7 @@
 		7B76815224A3FA8100E92050 /* IUnityXRInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUnityXRInput.h; sourceTree = "<group>"; };
 		7B76815324A3FA8100E92050 /* IUnityGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUnityGraphics.h; sourceTree = "<group>"; };
 		7B76815424A3FA8100E92050 /* IUnityGraphicsD3D9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUnityGraphicsD3D9.h; sourceTree = "<group>"; };
+		894DDBF15E60C010897D413A /* Pods-sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sdk.debug.xcconfig"; path = "Target Support Files/Pods-sdk/Pods-sdk.debug.xcconfig"; sourceTree = "<group>"; };
 		E01C984026B44A71001BB0E3 /* cardboard_display_api.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cardboard_display_api.cc; sourceTree = "<group>"; };
 		E01C984126B44A71001BB0E3 /* cardboard_display_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardboard_display_api.h; sourceTree = "<group>"; };
 		E0DFCFEB26B3474400F285A5 /* cardboard_input_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardboard_input_api.h; sourceTree = "<group>"; };
@@ -181,6 +192,7 @@
 			files = (
 				0FECE29825BB2760009C662C /* Metal.framework in Frameworks */,
 				0FECE29A25BB276D009C662C /* MetalKit.framework in Frameworks */,
+				65E1CE3D2976D39800BE09D2 /* libProtobuf-C++.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,10 +229,12 @@
 				0FD201F823575F3A00B3C342 /* screen_params */,
 				0FD2022923575F3B00B3C342 /* screen_params.h */,
 				0FD2020C23575F3B00B3C342 /* sensors */,
+				65E1CE4A2976E77300BE09D2 /* sixdof */,
 				0FF99B2324587233001FF78F /* unity */,
 				0FD201FC23575F3A00B3C342 /* util */,
 				0FD200862357511E00B3C342 /* Products */,
 				0FD201F223575B8000B3C342 /* Frameworks */,
+				93414D1C345AF385A56AF06C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,6 +251,8 @@
 			children = (
 				0FECE29925BB276D009C662C /* MetalKit.framework */,
 				0FECE29725BB2760009C662C /* Metal.framework */,
+				65E1CE3C2976D39800BE09D2 /* libProtobuf-C++.a */,
+				603E6F6F2C3879C5E976A1DF /* libPods-sdk.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -381,6 +397,17 @@
 			path = xr_unity_plugin;
 			sourceTree = "<group>";
 		};
+		65E1CE4A2976E77300BE09D2 /* sixdof */ = {
+			isa = PBXGroup;
+			children = (
+				65E1CE4B2976E77300BE09D2 /* rotation_data.cc */,
+				65E1CE4C2976E77300BE09D2 /* position_data.cc */,
+				65E1CE4D2976E77300BE09D2 /* rotation_data.h */,
+				65E1CE4E2976E77300BE09D2 /* position_data.h */,
+			);
+			path = sixdof;
+			sourceTree = "<group>";
+		};
 		7B2ADAC824E4779500FEBAA8 /* rendering */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +462,16 @@
 			path = unity;
 			sourceTree = "<group>";
 		};
+		93414D1C345AF385A56AF06C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				894DDBF15E60C010897D413A /* Pods-sdk.debug.xcconfig */,
+				0E76FEE24810A5606280A30D /* Pods-sdk.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -442,6 +479,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FD2008E2357511E00B3C342 /* Build configuration list for PBXNativeTarget "sdk" */;
 			buildPhases = (
+				5889860F70F20D518BF4AB65 /* [CP] Check Pods Manifest.lock */,
 				0FD200812357511E00B3C342 /* Sources */,
 				0FD200822357511E00B3C342 /* Frameworks */,
 				0FD200832357511E00B3C342 /* CopyFiles */,
@@ -486,6 +524,31 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5889860F70F20D518BF4AB65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-sdk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0FD200812357511E00B3C342 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -501,6 +564,7 @@
 				0FD2025023575F3B00B3C342 /* mean_filter.cc in Sources */,
 				0FD2024F23575F3B00B3C342 /* gyroscope_bias_estimator.cc in Sources */,
 				0FD2023E23575F3B00B3C342 /* screen_params.mm in Sources */,
+				65E1CE502976E77300BE09D2 /* position_data.cc in Sources */,
 				0FD2024B23575F3B00B3C342 /* device_gyroscope_sensor.mm in Sources */,
 				E0DFCFED26B3474400F285A5 /* cardboard_input_api.cc in Sources */,
 				0FD2024223575F3B00B3C342 /* matrixutils.cc in Sources */,
@@ -531,6 +595,7 @@
 				0FD2024423575F3B00B3C342 /* lens_distortion.cc in Sources */,
 				0FD2025523575F3B00B3C342 /* qr_code.mm in Sources */,
 				0FD2023F23575F3B00B3C342 /* rotation.cc in Sources */,
+				65E1CE4F2976E77300BE09D2 /* rotation_data.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +726,7 @@
 		};
 		0FD2008F2357511E00B3C342 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 894DDBF15E60C010897D413A /* Pods-sdk.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
@@ -692,6 +758,7 @@
 		};
 		0FD200902357511E00B3C342 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E76FEE24810A5606280A30D /* Pods-sdk.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;

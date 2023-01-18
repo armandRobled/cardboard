@@ -121,6 +121,20 @@ void CardboardInputApi::SetHeadTrackerRecenterRequested() {
   head_tracker_recenter_requested_ = true;
 }
 
+// Aryzon 6DoF
+void CardboardInputApi::AddSixDoFData(int64_t timestamp_nano, float* position, float* orientation) {
+    //LOGW("Head tracker was queried when setting 6DoF data.");
+    if (head_tracker_ == nullptr) {
+        LOGW("Uninitialized head tracker was queried when setting 6DoF data.");
+        return;
+    }
+    // Convert from Unity space to Cardboard space
+    position[2] = -position[2];
+    orientation[2] = -orientation[2];
+    
+    CardboardHeadTracker_addSixDoFData(head_tracker_.get(), timestamp_nano, position, orientation);
+}
+
 int64_t CardboardInputApi::GetBootTimeNano() {
   struct timespec res;
 #if defined(__ANDROID__)

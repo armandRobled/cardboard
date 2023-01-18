@@ -121,14 +121,14 @@ void Cardboard_initializeAndroid(JavaVM* vm, jobject context) {
 
 CardboardLensDistortion* CardboardLensDistortion_create(
     const uint8_t* encoded_device_params, int size, int display_width,
-    int display_height) {
+    int display_height, float inter_lens_distance, float interpupillary_distance) {
   if (CARDBOARD_IS_NOT_INITIALIZED() ||
       CARDBOARD_IS_ARG_NULL(encoded_device_params)) {
     return nullptr;
   }
   return reinterpret_cast<CardboardLensDistortion*>(
       new cardboard::LensDistortion(encoded_device_params, size, display_width,
-                                    display_height));
+                                    display_height, inter_lens_distance, interpupillary_distance));
 }
 
 void CardboardLensDistortion_destroy(CardboardLensDistortion* lens_distortion) {
@@ -311,6 +311,18 @@ void CardboardHeadTracker_recenter(CardboardHeadTracker* head_tracker) {
     return;
   }
   static_cast<cardboard::HeadTracker*>(head_tracker)->Recenter();
+}
+
+// Aryzon 6DoF
+void CardboardHeadTracker_addSixDoFData(CardboardHeadTracker* head_tracker,
+                                        int64_t timestamp_ns,
+                                        float* position,
+                                        float* orientation) {
+  if (CARDBOARD_IS_NOT_INITIALIZED() || CARDBOARD_IS_ARG_NULL(head_tracker)) {
+    return;
+  }
+    
+  static_cast<cardboard::HeadTracker*>(head_tracker)->AddSixDoFData(timestamp_ns, position, orientation);
 }
 
 void CardboardQrCode_getSavedDeviceParams(uint8_t** encoded_device_params,

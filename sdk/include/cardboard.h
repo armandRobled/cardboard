@@ -303,10 +303,12 @@ void Cardboard_initializeAndroid(JavaVM* vm, jobject context);
 ///     @c encoded_device_params.
 /// @param[in]      display_width           Size in pixels of display width.
 /// @param[in]      display_height          Size in pixels of display height.
+/// @param[in]      inter_lens_distance          Distance between lens center points.
+/// @param[in]      inter_pupillary_distance          Distance between eye pupils.
 /// @return         Lens distortion object pointer.
 CardboardLensDistortion* CardboardLensDistortion_create(
     const uint8_t* encoded_device_params, int size, int display_width,
-    int display_height);
+    int display_height, float inter_lens_distance, float inter_pupillary_distance);
 
 /// Destroys and releases memory used by the provided lens distortion object.
 ///
@@ -609,6 +611,22 @@ void CardboardHeadTracker_getPose(
 ///
 /// @param[in]      head_tracker            Head tracker object pointer.
 void CardboardHeadTracker_recenter(CardboardHeadTracker* head_tracker);
+
+/// Aryzon 6DoF
+/// Sends through the event with pose and timestamp data from 6DoF tracker
+///
+/// @pre @p head_tracker Must not be null.
+/// When it is unmet, a call to this function results in a no-op.
+///
+/// @param[in]      head_tracker            Head tracker object pointer.
+/// @param[in]      timestamp_ns            The timestamp for the data in
+///     nanoseconds in system monotonic clock.
+/// @param[out]     position                3 floats for (x, y, z).
+/// @param[out]     orientation             4 floats for quaternion
+void CardboardHeadTracker_addSixDoFData(CardboardHeadTracker* head_tracker,
+                                        int64_t timestamp_ns,
+                                        float* position,
+                                        float* orientation);
 
 /// @}
 

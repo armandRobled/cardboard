@@ -140,7 +140,7 @@
   // Create CardboardLensDistortion.
   CardboardLensDistortion_destroy(_cardboardLensDistortion);
   _cardboardLensDistortion =
-      CardboardLensDistortion_create(encodedDeviceParams, size, width, height);
+      CardboardLensDistortion_create(encodedDeviceParams, size, width, height, -1, -1);
 
   // Initialize HelloCardboardRenderer.
   _renderer.reset(new cardboard::hello_cardboard::HelloCardboardRenderer(

@@ -2,9 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 31
-    lintOptions {
-        abortOnError false
-    }
     defaultConfig {
         applicationId "com.google.cardboard.hellocardboard"
         // #gles3 #vulkan - You can reduce minSdkVersion down to 16 depending
@@ -35,6 +32,9 @@ android {
     }
     externalNativeBuild.cmake {
         path "CMakeLists.txt"
+    }
+    lint {
+        abortOnError false
     }
 }
 

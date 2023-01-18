@@ -27,7 +27,12 @@
 #include <string>
 #include <vector>
 
-#include "include/cardboard.h"
+#ifdef __ANDROID__
+#include "device_params/android/device_params.h"
+#else
+#include "cardboard_device.pb.h"
+#endif
+#include "qr_code.h"
 
 // The following block makes log macros available for Android and iOS.
 #if defined(__ANDROID__)
@@ -67,6 +72,9 @@ void NSLog(CFStringRef format, ...);
 #endif
 
 namespace cardboard::unity {
+
+static float inter_lens_distance = -1;
+static float interpupillary_distance = -1;
 
 std::atomic<CardboardDisplayApi::ScreenParams>
     CardboardDisplayApi::unity_screen_params_({0, 0, 0, 0, 0, 0});
@@ -138,11 +146,11 @@ void CardboardDisplayApi::UpdateDeviceParams() {
     CardboardQrCode_getCardboardV1DeviceParams(&data, &size);
     lens_distortion = CardboardLensDistortion_create(
         data, size, screen_params_.viewport_width,
-        screen_params_.viewport_height);
+        screen_params_.viewport_height, inter_lens_distance, interpupillary_distance);
   } else {
     lens_distortion = CardboardLensDistortion_create(
         data, size, screen_params_.viewport_width,
-        screen_params_.viewport_height);
+        screen_params_.viewport_height, inter_lens_distance, interpupillary_distance);
     CardboardQrCode_destroy(data);
   }
   device_params_changed_ = false;
@@ -364,6 +372,13 @@ Renderer::ScreenParams CardboardDisplayApi::ScreenParamsToRendererScreenParams(
       screen_params.viewport_width, screen_params.viewport_height};
 }
 
+void CardboardDisplayApi::SetInterLensDistance(float distance) {
+  inter_lens_distance = distance;
+}
+void CardboardDisplayApi::SetInterpupillaryDistance(float distance) {
+  interpupillary_distance = distance;
+}
+
 }  // namespace cardboard::unity
 
 #ifdef __cplusplus
@@ -425,6 +440,34 @@ void CardboardUnity_setGraphicsApi(CardboardGraphicsApi graphics_api) {
           "Misconfigured Graphics API. Neither OpenGL ES 2.0 nor OpenGL ES 3.0 "
           "nor Metal nor Vulkan was selected.");
   }
+}
+
+void CardboardUnity_setInterLensDistance(float distance) {
+    cardboard::unity::CardboardDisplayApi::SetInterLensDistance(distance);
+}
+void CardboardUnity_setInterpupillaryDistance(float distance) {
+    cardboard::unity::CardboardDisplayApi::SetInterpupillaryDistance(distance);
+}
+
+char* CardboardUnity_getHeadsetModel() {
+    std::vector<uint8_t> device_params = cardboard::qrcode::getCurrentSavedDeviceParams();
+
+    int size = static_cast<int>(device_params.size());
+    if (size <= 0) {
+        return nullptr;
+    }
+
+    uint8_t* encoded_device_params = new uint8_t[size];
+    memcpy(encoded_device_params, &device_params[0], size);
+    cardboard::DeviceParams pb_device_params;
+    pb_device_params.ParseFromArray(encoded_device_params, size);
+#if defined(__APPLE__)
+    const char* m = pb_device_params.model().c_str();
+#else
+    const char* m = pb_device_params.model();
+#endif
+    char* ptr = strdup(m);
+    return ptr;
 }
 
 #ifdef __cplusplus

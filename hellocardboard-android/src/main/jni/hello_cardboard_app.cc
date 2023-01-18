@@ -263,7 +263,7 @@ bool HelloCardboardApp::UpdateDeviceParams() {
 
   CardboardLensDistortion_destroy(lens_distortion_);
   lens_distortion_ = CardboardLensDistortion_create(buffer, size, screen_width_,
-                                                    screen_height_);
+                                                    screen_height_, -1, -1);
 
   CardboardQrCode_destroy(buffer);
 
